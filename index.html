@@ -30,9 +30,31 @@
             align-items: center;
         }
 
+        .search-bar-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .search-bar {
+            width: 70%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+
+        .search-icon {
+            width: 20px;
+            height: 20px;
+            fill: #333;
+        }
+
         main {
             max-width: 1000px;
-            margin: 160px auto 20px;
+            margin: 100px auto 20px;
             padding: 20px;
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -101,21 +123,6 @@
             background-color: #2980b9;
         }
 
-        .search-bar {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            margin: 20px 0;
-        }
-
-        .search-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-            fill: #333;
-        }
-
         footer {
             text-align: center;
             padding: 20px;
@@ -173,6 +180,18 @@
         .modal-close:hover {
             color: #555;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
@@ -180,12 +199,13 @@
     <header>
         <div>
             <h1>Your App Store</h1>
-            <div>
-                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-1.47-3.84-6-6.39-10.83-5.34-3.89 1.04-6.73 4.68-7.22 8.66-.56 4.44 2.2 8.64 6.14 10.01 3.67 1.26 7.58.31 10.38-2.38l.29.28v.79l5 4.99c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-                </svg>
-                <input type="text" class="search-bar" placeholder="Search for apps and games...">
-            </div>
+        </div>
+        <div class="search-bar-container">
+            <input type="text" class="search-bar" placeholder="Search for apps and games...">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-1.47-3.84-6-6.39-10.83-5.34-3.89 1.04-6.73 4.68-7.22 8.66-.56 4.44 2.2 8.64 6.14 10.01 3.67 1.26 7.58.31 10.38-2.38l.29.28v.79l5 4.99c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+            </svg>
         </div>
     </header>
 
@@ -198,22 +218,46 @@
                 <div class="game-title">Game 1</div>
                 <a href="#" class="download-button">Download</a>
             </div>
-
-            <!-- Add more featured games here -->
-
+            <div class="game-block" onclick="openGameDetails('Game 2', 'path/to/game2-icon.png', 'path/to/download/game2.zip')">
+                <img src="path/to/game2-icon.png" alt="Game 2 Icon" class="game-icon">
+                <div class="game-title">Game 2</div>
+                <a href="#" class="download-button">Download</a>
+            </div>
+            <div class="game-block" onclick="openGameDetails('Game 3', 'path/to/game3-icon.png', 'path/to/download/game3.zip')">
+                <img src="path/to/game3-icon.png" alt="Game 3 Icon" class="game-icon">
+                <div class="game-title">Game 3</div>
+                <a href="#" class="download-button">Download</a>
+            </div>
+            <div class="game-block" onclick="openGameDetails('Game 4', 'path/to/game4-icon.png', 'path/to/download/game4.zip')">
+                <img src="path/to/game4-icon.png" alt="Game 4 Icon" class="game-icon">
+                <div class="game-title">Game 4</div>
+                <a href="#" class="download-button">Download</a>
+            </div>
         </div>
 
         <h2>More Games</h2>
         <div class="game-section">
             <!-- More Games -->
-            <div class="game-block" onclick="openGameDetails('Game 9', 'path/to/game9-icon.png', 'path/to/download/game9.zip')">
-                <img src="path/to/game9-icon.png" alt="Game 9 Icon" class="game-icon">
-                <div class="game-title">Game 9</div>
+            <div class="game-block" onclick="openGameDetails('Game 5', 'path/to/game5-icon.png', 'path/to/download/game5.zip')">
+                <img src="path/to/game5-icon.png" alt="Game 5 Icon" class="game-icon">
+                <div class="game-title">Game 5</div>
                 <a href="#" class="download-button">Download</a>
             </div>
-
-            <!-- Add more games here -->
-
+            <div class="game-block" onclick="openGameDetails('Game 6', 'path/to/game6-icon.png', 'path/to/download/game6.zip')">
+                <img src="path/to/game6-icon.png" alt="Game 6 Icon" class="game-icon">
+                <div class="game-title">Game 6</div>
+                <a href="#" class="download-button">Download</a>
+            </div>
+            <div class="game-block" onclick="openGameDetails('Game 7', 'path/to/game7-icon.png', 'path/to/download/game7.zip')">
+                <img src="path/to/game7-icon.png" alt="Game 7 Icon" class="game-icon">
+                <div class="game-title">Game 7</div>
+                <a href="#" class="download-button">Download</a>
+            </div>
+            <div class="game-block" onclick="openGameDetails('Game 8', 'path/to/game8-icon.png', 'path/to/download/game8.zip')">
+                <img src="path/to/game8-icon.png" alt="Game 8 Icon" class="game-icon">
+                <div class="game-title">Game 8</div>
+                <a href="#" class="download-button">Download</a>
+            </div>
         </div>
     </main>
 
@@ -233,6 +277,54 @@
     </footer>
 
     <script>
+        // Sample data for testing
+        const gamesData = [
+            { title: 'Game 1', icon: 'path/to/game1-icon.png', download: 'path/to/download/game1.zip' },
+            { title: 'Game 2', icon: 'path/to/game2-icon.png', download: 'path/to/download/game2.zip' },
+            { title: 'Game 3', icon: 'path/to/game3-icon.png', download: 'path/to/download/game3.zip' },
+            { title: 'Game 4', icon: 'path/to/game4-icon.png', download: 'path/to/download/game4.zip' },
+            { title: 'Game 5', icon: 'path/to/game5-icon.png', download: 'path/to/download/game5.zip' },
+            { title: 'Game 6', icon: 'path/to/game6-icon.png', download: 'path/to/download/game6.zip' },
+            { title: 'Game 7', icon: 'path/to/game7-icon.png', download: 'path/to/download/game7.zip' },
+            { title: 'Game 8', icon: 'path/to/game8-icon.png', download: 'path/to/download/game8.zip' }
+        ];
+
+        function renderGames(games) {
+            const gameSection = document.querySelector('.game-section');
+            gameSection.innerHTML = '';
+
+            games.forEach(game => {
+                const gameBlock = createGameBlock(game.title, game.icon, game.download);
+                gameSection.appendChild(gameBlock);
+            });
+        }
+
+        function createGameBlock(title, iconUrl, downloadUrl) {
+            const gameBlock = document.createElement('div');
+            gameBlock.classList.add('game-block');
+            gameBlock.onclick = () => openGameDetails(title, iconUrl, downloadUrl);
+
+            const gameIcon = document.createElement('img');
+            gameIcon.src = iconUrl;
+            gameIcon.alt = `${title} Icon`;
+            gameIcon.classList.add('game-icon');
+
+            const gameTitle = document.createElement('div');
+            gameTitle.classList.add('game-title');
+            gameTitle.textContent = title;
+
+            const downloadButton = document.createElement('a');
+            downloadButton.href = '#';
+            downloadButton.classList.add('download-button');
+            downloadButton.textContent = 'Download';
+
+            gameBlock.appendChild(gameIcon);
+            gameBlock.appendChild(gameTitle);
+            gameBlock.appendChild(downloadButton);
+
+            return gameBlock;
+        }
+
         function openGameDetails(title, iconUrl, downloadUrl) {
             // Set modal content
             document.getElementById('gameModalTitle').innerText = title;
@@ -246,6 +338,19 @@
         function closeGameDetails() {
             // Hide modal
             document.getElementById('gameModal').style.display = 'none';
+        }
+
+        // Initial rendering of games
+        renderGames(gamesData);
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-bar');
+        searchInput.addEventListener('input', handleSearch);
+
+        function handleSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredGames = gamesData.filter(game => game.title.toLowerCase().includes(searchTerm));
+            renderGames(filteredGames);
         }
     </script>
 </body>
