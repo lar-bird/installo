@@ -25,13 +25,13 @@
 
         header div {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
         main {
             max-width: 1000px;
-            margin: 120px auto 20px;
+            margin: 160px auto 20px;
             padding: 20px;
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -41,13 +41,13 @@
         .game-section {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
         }
 
         .game-block {
             border: 1px solid #ccc;
             padding: 20px;
-            margin: 10px;
+            margin: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -108,12 +108,11 @@
         }
 
         .search-bar {
-            width: 70%;
+            width: 100%;
             padding: 10px;
             box-sizing: border-box;
             border: 1px solid #ccc;
-            margin: 20px auto;
-            display: block;
+            margin: 20px 0;
         }
 
         footer {
@@ -166,6 +165,11 @@
             top: 10px;
             right: 10px;
             font-size: 20px;
+            color: #333;
+        }
+
+        .modal-close:hover {
+            color: #555;
         }
     </style>
 </head>
@@ -175,9 +179,13 @@
         <div>
             <h1>Your App Store</h1>
         </div>
+        <div>
+            <input type="text" class="search-bar" placeholder="Search for apps and games...">
+        </div>
     </header>
 
     <main>
+        <h2>Featured Games</h2>
         <div class="game-section">
             <!-- Featured Games -->
             <div class="game-block" onclick="openGameDetails('Game 1', 'path/to/game1-icon.png', 'path/to/download/game1.zip')">
@@ -188,6 +196,10 @@
 
             <!-- Add more featured games here -->
 
+        </div>
+
+        <h2>More Games</h2>
+        <div class="game-section">
             <!-- More Games -->
             <div class="game-block" onclick="openGameDetails('Game 9', 'path/to/game9-icon.png', 'path/to/download/game9.zip')">
                 <img src="path/to/game9-icon.png" alt="Game 9 Icon" class="game-icon">
@@ -196,6 +208,7 @@
             </div>
 
             <!-- Add more games here -->
+
         </div>
     </main>
 
