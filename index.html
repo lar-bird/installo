@@ -21,7 +21,7 @@
             z-index: 1000;
         }
         main {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 120px auto 20px; /* Adjusted margin to accommodate fixed header and create space for "Featured Apps" */
             padding: 20px;
             background-color: white;
@@ -34,18 +34,24 @@
         h2 {
             color: #333;
         }
+        .game-section {
+            overflow-x: auto;
+        }
         .game-block {
             border: 1px solid #ccc;
             padding: 20px;
-            margin-bottom: 20px;
+            margin-right: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 30%; /* Adjust as needed */
+            width: 200px; /* Adjust as needed */
             box-sizing: border-box;
             transition: transform 0.2s ease-in-out;
             border-radius: 8px;
             cursor: pointer;
+        }
+        .game-block:last-child {
+            margin-right: 0;
         }
         .game-block:hover {
             transform: scale(1.05);
@@ -165,20 +171,13 @@
 <body>
     <header>
         <h1>Your App Store</h1>
-        <nav>
-            <a href="#" class="tab" onclick="showCategory('home')">Home</a>
-            <a href="#" class="tab" onclick="showCategory('games')">Games</a>
-            <a href="#" class="tab" onclick="showCategory('apps')">Apps</a>
-            <a href="#" class="tab" onclick="showCategory('opensource')">Open Source</a>
-        </nav>
-    </header>
-
-    <main>
-        <div style="text-align: center;">
+        <div>
             <input type="text" class="search-bar" placeholder="Search for apps and games...">
             <button class="search-button">🔍</button>
         </div>
+    </header>
 
+    <main>
         <div class="category-section home active">
             <h2>Welcome to Your App Store!</h2>
             <p>Discover and download amazing apps and games!</p>
@@ -186,14 +185,32 @@
 
         <div class="category-section games">
             <h2>Featured Games</h2>
-            <!-- Add new games here -->
-            <div class="game-block" onclick="openGameDetails('Game 1', 'path/to/game1-icon.png', 'path/to/download/game1.zip')">
-                <img src="path/to/game1-icon.png" alt="Game 1 Icon" class="game-icon">
-                <div class="game-title">Game 1</div>
-                <a href="#" class="download-button">Download</a>
+            <div class="game-section">
+                <!-- Add new games here -->
+                <div class="game-block" onclick="openGameDetails('Game 1', 'path/to/game1-icon.png', 'path/to/download/game1.zip')">
+                    <img src="path/to/game1-icon.png" alt="Game 1 Icon" class="game-icon">
+                    <div class="game-title">Game 1</div>
+                    <a href="#" class="download-button">Download</a>
+                </div>
+                <!-- Add more game blocks here -->
             </div>
-            <!-- Add more game blocks here -->
         </div>
+
+        <div class="category-section more-games">
+            <h2>More Games</h2>
+            <div class="game-section">
+                <!-- Add more games here -->
+                <div class="game-block" onclick="openGameDetails('Game 2', 'path/to/game2-icon.png', 'path/to/download/game2.zip')">
+                    <img src="path/to/game2-icon.png" alt="Game 2 Icon" class="game-icon">
+                    <div class="game-title">Game 2</div>
+                    <a href="#" class="download-button">Download</a>
+                </div>
+                <!-- Add more game blocks here -->
+            </div>
+        </div>
+
+        <!-- Add more sections as needed -->
+
     </main>
 
     <!-- Modal overlay -->
