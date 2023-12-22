@@ -22,7 +22,7 @@
         }
         main {
             max-width: 800px;
-            margin: 80px auto 20px; /* Adjusted margin to accommodate fixed header */
+            margin: 120px auto 20px; /* Adjusted margin to accommodate fixed header and create space for "Featured Apps" */
             padding: 20px;
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -38,7 +38,9 @@
             border: 1px solid #ccc;
             padding: 20px;
             margin-bottom: 20px;
-            display: inline-block;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 30%; /* Adjust as needed */
             box-sizing: border-box;
             transition: transform 0.2s ease-in-out;
@@ -47,6 +49,12 @@
         }
         .game-block:hover {
             transform: scale(1.05);
+        }
+        .game-icon {
+            width: 80px; /* Adjust as needed */
+            height: 80px; /* Adjust as needed */
+            margin-bottom: 10px;
+            border-radius: 50%;
         }
         .game-title {
             font-size: 18px;
@@ -109,6 +117,15 @@
         .category-section.active {
             display: block;
         }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -137,52 +154,23 @@
             <h2>Featured Games</h2>
             <!-- Add new games here -->
             <div class="game-block">
+                <img src="path/to/game1-icon.png" alt="Game 1 Icon" class="game-icon">
                 <div class="game-title">Game 1</div>
                 <a href="path/to/download/game1.zip" class="download-button">Download</a>
             </div>
             <div class="game-block">
+                <img src="path/to/game2-icon.png" alt="Game 2 Icon" class="game-icon">
                 <div class="game-title">Game 2</div>
                 <a href="path/to/download/game2.zip" class="download-button">Download</a>
             </div>
             <div class="game-block">
+                <img src="path/to/game3-icon.png" alt="Game 3 Icon" class="game-icon">
                 <div class="game-title">Game 3</div>
                 <a href="path/to/download/game3.zip" class="download-button">Download</a>
             </div>
         </div>
 
-        <div class="category-section apps">
-            <h2>Featured Apps</h2>
-            <!-- Add new apps here -->
-            <div class="game-block">
-                <div class="game-title">App 1</div>
-                <a href="path/to/download/app1.zip" class="download-button">Download</a>
-            </div>
-            <div class="game-block">
-                <div class="game-title">App 2</div>
-                <a href="path/to/download/app2.zip" class="download-button">Download</a>
-            </div>
-            <div class="game-block">
-                <div class="game-title">App 3</div>
-                <a href="path/to/download/app3.zip" class="download-button">Download</a>
-            </div>
-        </div>
-
-        <div class="category-section opensource">
-            <h2>Open Source Games</h2>
-            <!-- Add new open source games here -->
-            <div class="game-block">
-                <div class="game-title">Open Game 1</div>
-                <a href="path/to/download/opengame1.zip" class="download-button">Download</a>
-            </div>
-            <div class="game-block">
-                <div class="game-title">Open Game 2</div>
-                <a href="path/to/download/opengame2.zip" class="download-button">Download</a>
-            </div>
-            <div class="game-block">
-                <div class="game-title">Open Game 3</div>
-                <a href="path/to/download/opengame3.zip" class="download-button">Download</a>
-            </div>
-        </div>
+        <!-- Add more sections as needed -->
 
     </main>
 
