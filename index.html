@@ -6,13 +6,15 @@
     <title>Your App Store</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 20px;
+            background-color: #f8f8f8;
         }
         header {
             text-align: center;
             padding: 20px;
-            background-color: #f0f0f0;
+            background-color: #333;
+            color: white;
         }
         main {
             max-width: 800px;
@@ -28,6 +30,13 @@
             border: 1px solid #ccc;
             padding: 10px;
             margin-bottom: 20px;
+            display: inline-block;
+            width: 30%; /* Adjust as needed */
+            box-sizing: border-box;
+            transition: transform 0.2s ease-in-out;
+        }
+        .game-block:hover {
+            transform: scale(1.05);
         }
         .game-title {
             font-size: 18px;
@@ -42,17 +51,39 @@
             display: inline-block;
             font-size: 16px;
             cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .download-button:hover {
+            background-color: #45a049;
         }
         .search-bar {
-            width: 100%;
+            width: 70%;
             padding: 10px;
             margin-bottom: 20px;
             box-sizing: border-box;
+            border: 1px solid #ccc;
+        }
+        .search-button {
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .search-button:hover {
+            background-color: #555;
         }
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #f0f0f0;
+            background-color: #333;
+            color: white;
         }
     </style>
 </head>
@@ -63,39 +94,30 @@
     </header>
 
     <main>
-        <input type="text" class="search-bar" placeholder="Search for apps and games...">
+        <div style="text-align: center;">
+            <input type="text" class="search-bar" placeholder="Search for apps and games...">
+            <button class="search-button">🔍</button>
+        </div>
 
         <section>
             <h2>Featured Apps</h2>
+            <!-- Add new games here -->
             <div class="game-block">
                 <div class="game-title">App 1</div>
-                <a href="https://github.com/minetest/minetest/releases/download/5.8.0/minetest-5.8.0-win64.zip" class="download-button">Download</a>
+                <a href="path/to/download/app1.zip" class="download-button">Download</a>
             </div>
             <div class="game-block">
                 <div class="game-title">App 2</div>
-                <a href="#" class="download-button">Download</a>
+                <a href="path/to/download/app2.zip" class="download-button">Download</a>
             </div>
             <div class="game-block">
                 <div class="game-title">App 3</div>
-                <a href="#" class="download-button">Download</a>
+                <a href="path/to/download/app3.zip" class="download-button">Download</a>
             </div>
         </section>
 
-        <section>
-            <h2>Top Games</h2>
-            <div class="game-block">
-                <div class="game-title">Game 1</div>
-                <a href="#" class="download-button">Download</a>
-            </div>
-            <div class="game-block">
-                <div class="game-title">Game 2</div>
-                <a href="#" class="download-button">Download</a>
-            </div>
-            <div class="game-block">
-                <div class="game-title">Game 3</div>
-                <a href="#" class="download-button">Download</a>
-            </div>
-        </section>
+        <!-- Add more sections as needed -->
+
     </main>
 
     <footer>
