@@ -20,6 +20,11 @@
             width: 100%;
             z-index: 1000;
         }
+        header div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         main {
             max-width: 1000px;
             margin: 120px auto 20px; /* Adjusted margin to accommodate fixed header and create space for "Featured Apps" */
@@ -36,6 +41,7 @@
         }
         .game-section {
             overflow-x: auto;
+            display: flex;
         }
         .game-block {
             border: 1px solid #ccc;
@@ -86,13 +92,11 @@
         .search-bar {
             width: 70%;
             padding: 10px;
-            margin-bottom: 20px;
             box-sizing: border-box;
             border: 1px solid #ccc;
         }
         .search-button {
             padding: 10px;
-            margin-bottom: 20px;
             box-sizing: border-box;
             background-color: #3498db;
             color: white;
@@ -170,10 +174,12 @@
 </head>
 <body>
     <header>
-        <h1>Your App Store</h1>
         <div>
-            <input type="text" class="search-bar" placeholder="Search for apps and games...">
-            <button class="search-button">🔍</button>
+            <h1>Your App Store</h1>
+            <div>
+                <input type="text" class="search-bar" placeholder="Search for apps and games...">
+                <button class="search-button">🔍</button>
+            </div>
         </div>
     </header>
 
@@ -258,3 +264,4 @@
     </script>
 </body>
 </html>
+ 
