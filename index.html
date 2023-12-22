@@ -21,6 +21,7 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
+            top: 0;
         }
 
         header div {
@@ -60,18 +61,6 @@
             animation: fadeIn 0.5s forwards;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         .game-block:hover {
             transform: scale(1.05);
         }
@@ -81,6 +70,11 @@
             height: 80px;
             margin-bottom: 10px;
             border-radius: 50%;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .game-block:hover .game-icon {
+            transform: scale(1.1);
         }
 
         .game-title {
@@ -115,6 +109,13 @@
             margin: 20px 0;
         }
 
+        .search-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            fill: #333;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -145,6 +146,7 @@
             max-width: 400px;
             text-align: center;
             animation: fadeInModal 0.5s forwards;
+            position: relative;
         }
 
         @keyframes fadeInModal {
@@ -178,9 +180,12 @@
     <header>
         <div>
             <h1>Your App Store</h1>
-        </div>
-        <div>
-            <input type="text" class="search-bar" placeholder="Search for apps and games...">
+            <div>
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-1.47-3.84-6-6.39-10.83-5.34-3.89 1.04-6.73 4.68-7.22 8.66-.56 4.44 2.2 8.64 6.14 10.01 3.67 1.26 7.58.31 10.38-2.38l.29.28v.79l5 4.99c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg>
+                <input type="text" class="search-bar" placeholder="Search for apps and games...">
+            </div>
         </div>
     </header>
 
