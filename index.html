@@ -30,6 +30,78 @@
             align-items: center;
         }
 
+        .profile-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .profile-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+
+        .profile-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 300px;
+            text-align: center;
+            animation: fadeInModal 0.5s forwards;
+        }
+
+        @keyframes fadeInModal {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .modal-close:hover {
+            color: #555;
+        }
+
+        .login-button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+            margin-top: 20px;
+        }
+
+        .login-button:hover {
+            background-color: #2980b9;
+        }
+
         .search-container {
             display: flex;
             align-items: center;
@@ -59,7 +131,7 @@
 
         main {
             max-width: 1000px;
-            margin: 120px auto 20px;
+            margin: 160px auto 20px;
             padding: 20px;
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -161,31 +233,6 @@
             position: relative;
         }
 
-        @keyframes fadeInModal {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .modal-close {
-            cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 20px;
-            color: #333;
-        }
-
-        .modal-close:hover {
-            color: #555;
-        }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -205,13 +252,21 @@
         <div>
             <h1>Your App Store</h1>
         </div>
-        <div class="search-container">
-            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-1.47-3.84-6-6.39-10.83-5.34-3.89 1.04-6.73 4.68-7.22 8.66-.56 4.44 2.2 8.64 6.14 10.01 3.67 1.26 7.58.31 10.38-2.38l.29.28v.79l5 4.99c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-            </svg>
-            <input type="text" class="search-bar" placeholder="Search for apps and games..." oninput="filterGames(this.value)">
+        <div class="profile-container" onclick="toggleProfileModal()">
+            <img class="profile-icon" src="path/to/default-profile-icon.png" alt="Profile Icon">
+            <!-- Add the user's profile photo when logged in -->
         </div>
     </header>
+
+    <!-- Profile Modal -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="toggleProfileModal()">×</span>
+            <!-- Display user email when logged in -->
+            <p id="userEmail"></p>
+            <button class="login-button" onclick="logout()">Logout</button>
+        </div>
+    </div>
 
     <main>
         <h2>Featured Games</h2>
@@ -294,6 +349,17 @@
         function closeGameDetails() {
             // Hide modal
             document.getElementById('gameModal').style.display = 'none';
+        }
+
+        function toggleProfileModal() {
+            const profileModal = document.getElementById('profileModal');
+            profileModal.style.display === 'flex' ? profileModal.style.display = 'none' : profileModal.style.display = 'flex';
+        }
+
+        function logout() {
+            // Perform logout action, e.g., clear user session
+            // For simplicity, just close the profile modal
+            toggleProfileModal();
         }
 
         function filterGames(searchTerm) {
